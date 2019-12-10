@@ -1,0 +1,50 @@
+{
+    location  : "eastus",
+    name  : "FirstTestVM1",
+    properties  : {
+      hardwareProfile  : {
+        vmSize  : "Standard_DS1_v2"
+    },
+     storageProfile  : {
+        imageReference  : {
+          sku  : "18.04-LTS",
+          publisher  : "Canonical",
+          version  : "latest",
+          offer  : "UbuntuServer"
+      },
+       osDisk  : {
+          caching  : "ReadWrite",
+          managedDisk  : {
+            storageAccountType  : "Premium_LRS"
+        },
+         name  : "myVMosdisk",
+          createOption  : "FromImage"
+      }
+    },
+     osProfile  : {
+        adminUsername  : "myAdmin",
+        computerName  : "FirstTestVM1",
+        linuxConfiguration  : {
+          ssh  : {
+            publicKeys  : [
+            {
+               path  : "/home/myAdmin/.ssh/authorized_keys",
+                keyData  : "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQC6XAWm+QmWG6StYmk8c+pO0ahYDaBSxQGM7lpHJK6wxTIw8omhh6ryt6lNBdNCmJhaYXNDoAVf52G2pjnq4hMLa4tefsHzCoeotlkPdZqD7QsTQxmOCmy5+mNZ+WrgUpx8fvBx201HVCZb1GRGGx3z5K7yHtCDwuuUQYgdvIYQno50Jllsvi7o+JkvGgxP0trqshsn+yiWhpwEr6zZnB+R7840TVqs7ZWah3aSMKjJkUdZHjijoiKT/laQJPW60ihrzWvQHISEB+ZEPqKAny49qkaHMava+54pNmHdjX6bggrn2qHO4Y/qf5VF3bfHTPzQ+zOkCfmacrasE0CwvClTxcV/idYoApFZPsJcgaktskjVihderpN1i1wUyV5pLHhysirHSa+P6g4GOX8uxABvvsJa/ZogyBAu5e7lQBz/YE2BM5Yd4gfycbWHP2/I/WfU3FW1K5/xpvQHFIHaFSCGJGvzRxp+MUTI7PTtyB8VUa7fyD1rjIrfOo/jcWT1WEk= a5118640@RB03659"
+            }
+          ]
+        },
+         disablePasswordAuthentication  : true
+      }
+    },
+	networkProfile : {
+		networkInterfaces : [
+        {
+			id : "/subscriptions/5a23b00f-d892-45b2-bcab-84e1357297bd/resourceGroups/VirtualMachine/providers/Microsoft.Network/networkInterfaces/secondvirtualmachine521",
+			properties : {
+             primary : true
+          }
+        }
+      ]
+    }
+  }
+}
